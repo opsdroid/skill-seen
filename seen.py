@@ -13,7 +13,7 @@ def last_seen(opsdroid, message):
     if seen == None or name not in seen:
         message.respond("I've never seen " + message.regex.group(1) + " before")
     else:
-        message.respond("I last saw " + message.regex.group(1) + " " + human(seen[name], precision=2))
+        message.respond("I last saw " + message.regex.group(1) + " " + human(seen[name], precision=1))
 
 @match_regex(r'.*')
 def update_seen(opsdroid, message):

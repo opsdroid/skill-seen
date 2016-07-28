@@ -1,5 +1,6 @@
 from opsdroid.skills import match_regex
 from datetime import datetime
+from ago import human
 import logging
 
 def setup(opsdroid):
@@ -12,7 +13,7 @@ def last_seen(opsdroid, message):
     if seen == None or name not in seen:
         message.respond("Never seen " + message.regex.group(1) + " before")
     else:
-        message.respond("I last saw " + message.regex.group(1) + " on " + seen[name])
+        message.respond("I last saw " + message.regex.group(1) + " on " + human(seen[name]))
 
 @match_regex(r'.*')
 def update_seen(opsdroid, message):

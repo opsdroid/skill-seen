@@ -6,4 +6,5 @@ def setup(opsdroid):
 
 @match_regex(r'when did you last see (.*)\?')
 def last_seen(opsdroid, message):
-    message.respond("Never seen them before")
+    print(message)
+    message.respond("Never seen " + message.regex.group[1] + " before")

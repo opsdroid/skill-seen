@@ -9,7 +9,7 @@ def setup(opsdroid):
 def last_seen(opsdroid, message):
     name = message.regex.group(1)
     seen = opsdroid.memory.get("seen")
-    if seen != None or name not in seen:
+    if seen == None or name not in seen:
         message.respond("Never seen " + message.regex.group(1) + " before")
     else:
         message.respond("I last saw " + message.regex.group(1) + " on " + seen[name])
@@ -17,7 +17,7 @@ def last_seen(opsdroid, message):
 @match_regex(r'.*')
 def update_seen(opsdroid, message):
     seen = opsdroid.memory.get("seen")
-    if seen = None:
+    if seen == None:
         seen = {}
     seen[message.user] = datetime.now()
     opsdroid.memory.put("seen", seen)

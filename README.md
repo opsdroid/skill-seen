@@ -4,17 +4,17 @@ A skill for [opsdroid](https://github.com/opsdroid/opsdroid) to record when it l
 
 ## Requirements
 
- * A database must be configured to persist the data
+ * A database must be configured in opsdroid
 
 ## Configuration
 
-This module requires no configuration.
+None.
 
 ## Usage
 
-_This module updates a list of usernames with a timestamp every time a message is parsed._
+_NB: This module updates a list of usernames with a timestamp every time a message is parsed._
 
-### `when did you last see <user>?`
+#### `when did you last see <user>?`
 
 Responds with the last time opsdroid saw the user.
 

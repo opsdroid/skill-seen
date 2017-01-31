@@ -1,4 +1,4 @@
-from opsdroid.skills import match_regex
+from opsdroid.matchers import match_regex
 from datetime import datetime
 from ago import human
 import logging
@@ -7,7 +7,7 @@ def setup(opsdroid):
     logging.debug("Loaded seen module")
 
 @match_regex(r'when did you last see (.*)\?')
-async def last_seen(opsdroid, message):
+async def last_seen(opsdroid, config, message):
     name = message.regex.group(1)
     seen = await opsdroid.memory.get("seen")
     if seen == None or name not in seen:
@@ -16,7 +16,7 @@ async def last_seen(opsdroid, message):
         await message.respond("I last saw " + message.regex.group(1) + " " + human(seen[name], precision=1))
 
 @match_regex(r'.*')
-async def update_seen(opsdroid, message):
+async def update_seen(opsdroid, config, message):
     seen = await opsdroid.memory.get("seen")
     if seen == None:
         seen = {}

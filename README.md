@@ -21,7 +21,3 @@ Responds with the last time opsdroid saw the user.
 > user: when did you last see john?
 >
 > opsdroid: I last saw john 7 minutes ago
-
-## License
-
-GNU General Public License Version 3 (GPLv3)
